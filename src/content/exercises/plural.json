@@ -1,0 +1,176 @@
+[
+  {
+    "id": "plural.ex.001",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "The plural of “ev” (house)?",
+    "answer": ["evler"],
+    "distractors": ["evlar", "evlır", "evlur"],
+    "explanation": {
+      "rule": "-lAr: front vowel e → -ler.",
+      "why": "ev has the front vowel e."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.002",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "The plural of “okul” (school)?",
+    "answer": ["okullar"],
+    "distractors": ["okuller", "okullur"],
+    "explanation": {
+      "rule": "-lAr: back vowel u → -lar.",
+      "why": "okul’s last vowel is u (back). A suffixes never take u/ü — only a or e."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.003",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "The plural of “kuş” (bird)?",
+    "answer": ["kuşlar"],
+    "distractors": ["kuşler", "kuşlür"],
+    "explanation": {
+      "rule": "-lAr: back vowel u → -lar.",
+      "why": "u is back → the a-variant."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.004",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "dağ + ___ (plural)",
+    "answer": ["lar"],
+    "distractors": ["ler"],
+    "explanation": {
+      "rule": "2-fold A: back a → -lar.",
+      "why": "dağ’s only vowel is a (back)."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.005",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "göz + ___ (plural)",
+    "answer": ["ler"],
+    "distractors": ["lar"],
+    "explanation": {
+      "rule": "2-fold A: front ö → -ler.",
+      "why": "ö is a front vowel."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.006",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "yıl + ___ (plural)",
+    "answer": ["lar"],
+    "distractors": ["ler"],
+    "explanation": {
+      "rule": "2-fold A: back ı → -lar.",
+      "why": "Dotless ı is a back vowel."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.007",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Write the plural of “kitap”. Hint: -lAr starts with a consonant, so the p does NOT soften.",
+    "answer": ["kitaplar"],
+    "explanation": {
+      "rule": "Softening needs a vowel-initial suffix; -lAr is consonant-initial.",
+      "why": "kitaplar keeps its p — contrast kitabı from the last unit."
+    },
+    "targets": ["wrong_suffix_vowel", "no_consonant_softening"]
+  },
+  {
+    "id": "plural.ex.008",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Write the plural of “çocuk” (child).",
+    "answer": ["çocuklar"],
+    "explanation": {
+      "rule": "Back u → -lar; no softening before a consonant.",
+      "why": "çocuklar — the k survives because -lAr starts with l."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.009",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Write the plural of “ay” (month).",
+    "answer": ["aylar"],
+    "explanation": {
+      "rule": "Back a → -lar.",
+      "why": "The y is a consonant; a is the governing vowel."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.010",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Write the plural of “kız” (girl).",
+    "answer": ["kızlar"],
+    "explanation": {
+      "rule": "Back ı → -lar.",
+      "why": "kız → kızlar; keep the dotless ı in the stem too."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.011",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate to Turkish: the doors",
+    "answer": ["kapılar"],
+    "explanation": {
+      "rule": "kapı + -lAr; back ı → -lar.",
+      "why": "Recall the noun and apply back harmony."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "plural.ex.012",
+    "conceptId": "plural",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate to Turkish: the trees",
+    "answer": ["ağaçlar"],
+    "explanation": {
+      "rule": "ağaç + -lAr; back a → -lar. No softening: consonant-initial suffix.",
+      "why": "ağaçlar keeps its ç — softening (ağacı) only happens before vowels."
+    },
+    "targets": ["wrong_suffix_vowel", "no_consonant_softening"]
+  }
+]

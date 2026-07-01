@@ -135,8 +135,9 @@ function stemsAvailableAt(concept: Concept): Set<string> {
     for (const word of allowlist.introducedBy[c.id] ?? []) {
       const w = toLowerTr(word);
       stems.add(w);
-      // final-stop softening variants: kitap→kitab, ağaç→ağac, kanat→kanad, çocuk→çocuğ
-      const soft = w.replace(/p$/, "b").replace(/ç$/, "c").replace(/t$/, "d").replace(/k$/, "ğ");
+      // final-stop softening variants: kitap→kitab, ağaç→ağac, kanat→kanad,
+      // çocuk→çocuğ — and after n, k→g (renk→reng)
+      const soft = w.replace(/p$/, "b").replace(/ç$/, "c").replace(/t$/, "d").replace(/nk$/, "ng").replace(/k$/, "ğ");
       if (soft !== w) stems.add(soft);
       // verb stems: strip -mak/-mek
       const stem = w.replace(/m[ae]k$/, "");

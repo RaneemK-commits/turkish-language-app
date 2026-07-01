@@ -33,9 +33,39 @@
     "id": "vowel-harmony.ex.003",
     "conceptId": "vowel-harmony",
     "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "Only the LAST vowel of a stem governs harmony. What is the governing vowel of “araba”?",
+    "answer": ["a"],
+    "distractors": ["e", "ı", "o"],
+    "explanation": {
+      "rule": "Harmony looks at the final vowel only.",
+      "why": "araba ends …ba → the governing vowel is a (back)."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.004",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "Stem “göz” — which vowel does a 4-fold I suffix take?",
+    "answer": ["ü"],
+    "distractors": ["ı", "i", "u"],
+    "explanation": {
+      "rule": "4-fold I: front + rounded → ü.",
+      "why": "ö is front and rounded, so I surfaces as ü."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.005",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
     "format": "suffix_match",
     "difficulty": 2,
-    "prompt": "kapı + ___  (plural)",
+    "prompt": "kapı + ___ (plural)",
     "answer": ["lar"],
     "distractors": ["ler"],
     "explanation": {
@@ -45,7 +75,52 @@
     "targets": ["wrong_suffix_vowel"]
   },
   {
-    "id": "vowel-harmony.ex.004",
+    "id": "vowel-harmony.ex.006",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "araba + ___ (plural)",
+    "answer": ["lar"],
+    "distractors": ["ler"],
+    "explanation": {
+      "rule": "2-fold A: back vowel → a.",
+      "why": "The governing (last) vowel of ‘araba’ is a."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.007",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "köpek + ___ (plural)",
+    "answer": ["ler"],
+    "distractors": ["lar"],
+    "explanation": {
+      "rule": "2-fold A: front vowel → e.",
+      "why": "The last vowel of ‘köpek’ is e (front)."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.008",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "deniz + ___ (plural)",
+    "answer": ["ler"],
+    "distractors": ["lar"],
+    "explanation": {
+      "rule": "2-fold A: front vowel → e.",
+      "why": "The last vowel of ‘deniz’ is i (front)."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.009",
     "conceptId": "vowel-harmony",
     "type": "exercise",
     "format": "fill_blank",
@@ -55,6 +130,62 @@
     "explanation": {
       "rule": "2-fold A: ö is front → -ler.",
       "why": "Front-vowel stems always take the e-variant of A suffixes."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.010",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Write the plural of “araba” (car).",
+    "answer": ["arabalar"],
+    "explanation": {
+      "rule": "2-fold A: a is back → -lar.",
+      "why": "araba’s governing vowel is its final a."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.011",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Write the plural of “köpek” (dog).",
+    "answer": ["köpekler"],
+    "explanation": {
+      "rule": "2-fold A: e is front → -ler.",
+      "why": "Both vowels of köpek are front; the final e governs."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.012",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate to Turkish: years",
+    "answer": ["yıllar"],
+    "explanation": {
+      "rule": "yıl + -lAr; ı is back → -lar.",
+      "why": "Recall the word AND apply back harmony in one step."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.013",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate to Turkish: seas",
+    "answer": ["denizler"],
+    "explanation": {
+      "rule": "deniz + -lAr; final i is front → -ler.",
+      "why": "Recall + harmony: front-vowel stem takes -ler."
     },
     "targets": ["wrong_suffix_vowel"]
   }

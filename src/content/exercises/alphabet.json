@@ -1,0 +1,175 @@
+[
+  {
+    "id": "alphabet.ex.001",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "Which Turkish letter makes the ‘ch’ sound, as in ‘church’?",
+    "answer": ["ç"],
+    "distractors": ["c", "ş", "j"],
+    "explanation": {
+      "rule": "ç = English ‘ch’; plain c = English ‘j’.",
+      "why": "The cedilla marks the voiceless sound — ç is ‘ch’, c is ‘j’."
+    },
+    "targets": ["sound_letter_match"]
+  },
+  {
+    "id": "alphabet.ex.002",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "Which Turkish letter sounds like the English ‘j’ in ‘jam’?",
+    "answer": ["c"],
+    "distractors": ["j", "ç", "ş"],
+    "explanation": {
+      "rule": "Turkish c = English ‘j’. (Turkish j is the ‘zh’ of ‘vision’, rare.)",
+      "why": "‘Ceket’ (jacket) is pronounced ‘jeket’."
+    },
+    "targets": ["sound_letter_match"]
+  },
+  {
+    "id": "alphabet.ex.003",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "Which vowel is the DOTLESS i — the ‘e’ sound in ‘open’?",
+    "answer": ["ı"],
+    "distractors": ["i", "ü", "ö"],
+    "explanation": {
+      "rule": "ı (no dot) is a back vowel; i (dotted) is ‘ee’.",
+      "why": "They are different letters AND different sounds — the dot matters."
+    },
+    "targets": ["vowel_id"]
+  },
+  {
+    "id": "alphabet.ex.004",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "Which letter is silent and simply lengthens the vowel before it?",
+    "answer": ["ğ"],
+    "distractors": ["g", "h", "y"],
+    "explanation": {
+      "rule": "ğ (yumuşak ge / soft-g) never starts a word and has no sound of its own.",
+      "why": "‘dağ’ is pronounced ‘daa’ — the ğ stretches the a."
+    },
+    "targets": ["sound_letter_match"]
+  },
+  {
+    "id": "alphabet.ex.005",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Type the Turkish word for ‘water’ (two letters).",
+    "answer": ["su"],
+    "explanation": {
+      "rule": "su — plain s + back rounded u.",
+      "why": "Spelled exactly as it sounds: ‘soo’."
+    },
+    "targets": ["sound_letter_match"]
+  },
+  {
+    "id": "alphabet.ex.006",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Type the Turkish word for ‘mountain’ — it ends with the silent letter.",
+    "answer": ["dağ"],
+    "explanation": {
+      "rule": "dağ ends in soft-g: silent, lengthens the a.",
+      "why": "You hear ‘daa’ but write dağ."
+    },
+    "targets": ["sound_letter_match"]
+  },
+  {
+    "id": "alphabet.ex.007",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Type ‘child’ in Turkish (starts with ç, has two back rounded vowels).",
+    "answer": ["çocuk"],
+    "explanation": {
+      "rule": "çocuk = ‘cho-jook’ — ç is ‘ch’, both vowels are o/u (back, rounded).",
+      "why": "Practise pairing the ç sound with its letter."
+    },
+    "targets": ["sound_letter_match", "vowel_id"]
+  },
+  {
+    "id": "alphabet.ex.008",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Type ‘eye’ in Turkish (one syllable, front rounded vowel ö).",
+    "answer": ["göz"],
+    "explanation": {
+      "rule": "göz — ö as in German ‘schön’.",
+      "why": "ö is front + rounded; it will matter enormously for harmony."
+    },
+    "targets": ["vowel_id"]
+  },
+  {
+    "id": "alphabet.ex.009",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Type ‘girl’ in Turkish.",
+    "answer": ["kız"],
+    "explanation": {
+      "rule": "kız uses the dotless ı — ‘kuhz’, not ‘keez’.",
+      "why": "Writing i instead of ı is the classic beginner slip."
+    },
+    "targets": ["vowel_id"]
+  },
+  {
+    "id": "alphabet.ex.010",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Type ‘door’ in Turkish.",
+    "answer": ["kapı"],
+    "explanation": {
+      "rule": "kapı — both vowels back: a, then dotless ı.",
+      "why": "Ends in ı, not i: ‘kah-puh’."
+    },
+    "targets": ["vowel_id"]
+  },
+  {
+    "id": "alphabet.ex.011",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Type ‘book’ in Turkish.",
+    "answer": ["kitap"],
+    "explanation": {
+      "rule": "kitap — dotted i (‘ee’) then a.",
+      "why": "Here the i IS dotted — reading the dots correctly cuts both ways."
+    },
+    "targets": ["vowel_id"]
+  },
+  {
+    "id": "alphabet.ex.012",
+    "conceptId": "alphabet",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 4,
+    "prompt": "Which word contains ONLY front vowels {e i ö ü}?",
+    "answer": ["göz"],
+    "distractors": ["kapı", "okul", "çocuk"],
+    "explanation": {
+      "rule": "Front vowels: e i ö ü. göz has only ö → all-front.",
+      "why": "kapı (a, ı), okul (o, u) and çocuk (o, u) are all-back words. This split drives every suffix in the language — next lesson."
+    },
+    "targets": ["vowel_id"]
+  }
+]

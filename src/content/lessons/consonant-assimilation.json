@@ -1,0 +1,28 @@
+{
+  "id": "consonant-assimilation.lesson",
+  "conceptId": "consonant-assimilation",
+  "type": "lesson",
+  "formula": "final p ç t k → b c d ğ before a vowel\nsuffix D = d / t by voicing",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "**Softening:** when a suffix starting with a *vowel* attaches, a final voiceless stop voices: *kitap→kitabı*, *ağaç→ağacı*, *kanat→kanadı*, *çocuk→çocuğu*. Many one-syllable words resist it (*at→atı*)."
+    },
+    {
+      "kind": "rule",
+      "md": "**Consonant harmony:** a suffix written with `D` starts with **t** after a voiceless consonant (p ç t k f s ş h), otherwise **d**: *kitap-ta* but *ev-de*."
+    },
+    {
+      "kind": "example",
+      "tr": "kitabı",
+      "gloss": "kitap + ı — p softens to b",
+      "highlight": [{ "span": [4, 5], "note": "p → b before a vowel" }]
+    },
+    {
+      "kind": "example",
+      "tr": "kitapta",
+      "gloss": "kitap + DA — voiceless p picks t",
+      "highlight": [{ "span": [5, 7], "note": "D → t after p" }]
+    }
+  ]
+}

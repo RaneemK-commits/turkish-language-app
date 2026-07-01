@@ -1,20 +1,65 @@
-/* ---- reset & viewport ---- */
+/* ================================================================
+   Akış design tokens — dark slate/sky, dark-first (night scrolling).
+   Every component reads from these; re-skinning = editing this block.
+   ================================================================ */
+:root {
+  /* color */
+  --bg: #0f172a; /* slate-900 */
+  --card: #1e293b; /* slate-800 */
+  --card-raised: #273449;
+  --border: #334155; /* slate-700 */
+  --text: #f1f5f9; /* slate-100 */
+  --muted: #94a3b8; /* slate-400 */
+  --accent: #38bdf8; /* sky-400 */
+  --accent-deep: #0284c7; /* sky-600 */
+  --correct: #4ade80; /* green-400 */
+  --correct-bg: rgba(74, 222, 128, 0.12);
+  --incorrect: #f87171; /* red-400 */
+  --incorrect-bg: rgba(248, 113, 113, 0.12);
+  --typo: #facc15; /* yellow-400 */
+  --typo-bg: rgba(250, 204, 21, 0.12);
+
+  /* type */
+  --font-body:
+    system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-formula: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --fs-kicker: 13px;
+  --fs-body: 15px;
+  --fs-formula: 19px;
+  --fs-prompt: 22px;
+  --fs-option: 17px;
+
+  /* space & shape */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --radius-card: 20px;
+  --radius-control: 14px;
+  --touch-min: 44px; /* iOS minimum touch target */
+
+  /* motion */
+  --dur-quick: 140ms;
+  --dur-sheet: 260ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-quick: 0ms;
+    --dur-sheet: 0ms;
+  }
+}
+
+/* ---- reset ---- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-:root {
-  --bg: #0f172a; /* slate-900 */
-  --card: #1e293b; /* slate-800 */
-  --text: #f1f5f9; /* slate-100 */
-  --muted: #94a3b8; /* slate-400 */
-  --accent: #38bdf8; /* sky-400 */
-  --correct: #4ade80; /* green-400 */
-  --incorrect: #f87171; /* red-400 */
 }
 
 html,
@@ -26,17 +71,27 @@ body,
 body {
   background: var(--bg);
   color: var(--text);
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  overscroll-behavior: none; /* no rubber-band page bounce behind the feed */
+  overscroll-behavior: none;
 }
 
-/* ---- the feed (PDR §8.2: pure CSS snap, no JS scroll handling) ---- */
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input {
+  font: inherit;
+}
+
+/* ================================================================
+   Feed scroller — pure CSS snap (PDR §8.2)
+   ================================================================ */
 .card-scroller {
   height: 100dvh;
   overflow-y: auto;
@@ -51,52 +106,317 @@ body {
 .feed-card {
   height: 100dvh;
   scroll-snap-align: start;
-  scroll-snap-stop: always; /* one card per swipe, like a social feed */
+  scroll-snap-stop: always; /* one card per swipe */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: max(24px, env(safe-area-inset-top)) 24px
-    max(24px, env(safe-area-inset-bottom));
+  padding: max(var(--sp-5), env(safe-area-inset-top)) var(--sp-5)
+    max(var(--sp-5), env(safe-area-inset-bottom));
+  position: relative;
+  overflow: hidden;
 }
 
-.feed-card__inner {
+/* result wash across the whole card */
+.feed-card--correct {
+  background: var(--correct-bg);
+  transition: background var(--dur-quick) var(--ease-out);
+}
+.feed-card--typo {
+  background: var(--typo-bg);
+  transition: background var(--dur-quick) var(--ease-out);
+}
+.feed-card--incorrect {
+  background: var(--incorrect-bg);
+  transition: background var(--dur-quick) var(--ease-out);
+}
+
+/* ================================================================
+   Card anatomy: kicker / formula / body / interaction zone
+   ================================================================ */
+.card {
   width: 100%;
   max-width: 420px;
   background: var(--card);
-  border-radius: 20px;
-  padding: 28px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: var(--sp-6) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  max-height: 100%;
+  overflow-y: auto;
 }
 
-.feed-card__kicker {
+.card__kicker {
   color: var(--accent);
-  font-size: 13px;
+  font-size: var(--fs-kicker);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 12px;
 }
 
-.feed-card__formula {
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 20px;
-  line-height: 1.4;
-  margin-bottom: 16px;
+.card__formula {
+  font-family: var(--font-formula);
+  font-size: var(--fs-formula);
+  line-height: 1.45;
+  white-space: pre-line;
 }
 
-.feed-card__body {
+.card__prompt {
+  font-size: var(--fs-prompt);
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.card__body,
+.card__rule {
   color: var(--muted);
-  font-size: 15px;
+  font-size: var(--fs-body);
   line-height: 1.6;
 }
 
-.scroll-hint {
-  position: fixed;
-  bottom: max(16px, env(safe-area-inset-bottom));
+.card__rule strong {
+  color: var(--text);
+}
+
+/* lesson table */
+.card__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-body);
+}
+
+.card__table th {
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.card__table td {
+  font-family: var(--font-formula);
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+
+/* lesson example line */
+.example {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: var(--sp-3);
+  background: var(--card-raised);
+  border-radius: var(--radius-control);
+}
+
+.example__tr {
+  font-family: var(--font-formula);
+  font-size: 18px;
+}
+
+.example__tr mark {
+  background: none;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.example__gloss {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ================================================================
+   Exercise interaction zone
+   ================================================================ */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.option {
+  min-height: var(--touch-min);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--card-raised);
+  font-size: var(--fs-option);
+  text-align: left;
+  transition:
+    border-color var(--dur-quick) var(--ease-out),
+    background var(--dur-quick) var(--ease-out);
+}
+
+.option:active {
+  border-color: var(--accent);
+}
+
+.option--picked-correct {
+  border-color: var(--correct);
+  background: var(--correct-bg);
+}
+
+.option--picked-incorrect {
+  border-color: var(--incorrect);
+  background: var(--incorrect-bg);
+}
+
+.option--reveal-correct {
+  border-color: var(--correct);
+}
+
+.option:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+/* suffix tiles: horizontal pills after the stem */
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.tiles .option {
+  flex: 1 1 auto;
+  text-align: center;
+  font-family: var(--font-formula);
+  font-weight: 600;
+}
+
+/* fill-blank input */
+.answer-row {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.answer-input {
+  flex: 1;
+  min-height: var(--touch-min);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--card-raised);
+  color: var(--text);
+  font-size: var(--fs-option);
+}
+
+.answer-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn {
+  min-height: var(--touch-min);
+  padding: var(--sp-3) var(--sp-5);
+  border-radius: var(--radius-control);
+  background: var(--accent-deep);
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--fs-option);
+  transition: opacity var(--dur-quick);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ================================================================
+   Feedback sheet — slides up inside the card slide
+   ================================================================ */
+.sheet {
+  position: absolute;
   left: 0;
   right: 0;
-  text-align: center;
+  bottom: 0;
+  background: var(--card-raised);
+  border-top: 1px solid var(--border);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  padding: var(--sp-5) var(--sp-5)
+    max(var(--sp-5), env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transform: translateY(100%);
+  transition: transform var(--dur-sheet) var(--ease-out);
+  z-index: 2;
+}
+
+.sheet--open {
+  transform: translateY(0);
+}
+
+.sheet__verdict {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sheet__verdict--correct {
+  color: var(--correct);
+}
+.sheet__verdict--typo {
+  color: var(--typo);
+}
+.sheet__verdict--incorrect {
+  color: var(--incorrect);
+}
+
+.sheet__answer {
+  font-family: var(--font-formula);
+  font-size: 18px;
+}
+
+.sheet__rule {
+  color: var(--text);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+}
+
+.sheet__why {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* ================================================================
+   HUD + summary
+   ================================================================ */
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: max(var(--sp-3), env(safe-area-inset-top)) var(--sp-5) var(--sp-2);
+  font-size: var(--fs-kicker);
+  color: var(--muted);
+  background: linear-gradient(var(--bg) 30%, transparent);
   pointer-events: none;
+  z-index: 3;
+}
+
+.hud__correct {
+  color: var(--correct);
+  font-weight: 600;
+}
+
+.summary-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  font-size: var(--fs-body);
+}
+
+.summary-stats strong {
+  font-size: 28px;
+  font-family: var(--font-formula);
 }

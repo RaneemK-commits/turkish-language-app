@@ -1,0 +1,28 @@
+{
+  "id": "plural.lesson",
+  "conceptId": "plural",
+  "type": "lesson",
+  "formula": "noun + -lAr",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "Your first real suffix — pure 2-fold harmony. Last vowel **back** {a ı o u} → **-lar**; **front** {e i ö ü} → **-ler**. Because -lAr starts with a *consonant*, no softening ever happens: *kitap→kitaplar* (the p survives)."
+    },
+    {
+      "kind": "table",
+      "headers": ["stem", "last vowel", "plural"],
+      "rows": [
+        ["ev", "e (front)", "evler"],
+        ["kapı", "ı (back)", "kapılar"],
+        ["göz", "ö (front)", "gözler"],
+        ["okul", "u (back)", "okullar"]
+      ]
+    },
+    {
+      "kind": "example",
+      "tr": "çocuklar",
+      "gloss": "children — u is back → -lar",
+      "highlight": [{ "span": [5, 8], "note": "-lar: back harmony" }]
+    }
+  ]
+}

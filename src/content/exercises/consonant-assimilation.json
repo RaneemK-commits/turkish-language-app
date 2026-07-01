@@ -1,0 +1,188 @@
+[
+  {
+    "id": "consonant-assimilation.ex.001",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "kitap + ı → ?",
+    "answer": ["kitabı"],
+    "distractors": ["kitapı", "kitapi", "kitabi"],
+    "explanation": {
+      "rule": "Final p softens to b before a vowel-initial suffix.",
+      "why": "kitap ends in voiceless p; the vowel ı forces p → b."
+    },
+    "targets": ["no_consonant_softening", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "consonant-assimilation.ex.002",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "ağaç + ı → ?",
+    "answer": ["ağacı"],
+    "distractors": ["ağaçı", "ağaci"],
+    "explanation": {
+      "rule": "Final ç softens to c before a vowel.",
+      "why": "ağaç + vowel → ağac-; back vowel a keeps the suffix as ı."
+    },
+    "targets": ["no_consonant_softening"]
+  },
+  {
+    "id": "consonant-assimilation.ex.003",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“At school” — which is correct?",
+    "answer": ["okulda"],
+    "distractors": ["okulta", "okulde"],
+    "explanation": {
+      "rule": "Suffix D → d after a voiced sound; l is voiced.",
+      "why": "okul ends in l (voiced) → -da, and u is back → a."
+    },
+    "targets": ["wrong_consonant_harmony", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "consonant-assimilation.ex.004",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "kitap + DA (“in the book”) → ?",
+    "answer": ["kitapta"],
+    "distractors": ["kitapda", "kitabta"],
+    "explanation": {
+      "rule": "D → t after a voiceless consonant (p ç t k f s ş h).",
+      "why": "p is voiceless → -ta. No softening: the suffix starts with a consonant, not a vowel."
+    },
+    "targets": ["wrong_consonant_harmony", "no_consonant_softening"]
+  },
+  {
+    "id": "consonant-assimilation.ex.005",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Add the locative -DA to “uçak” (in the plane). Hint: k is voiceless.",
+    "answer": ["uçakta"],
+    "explanation": {
+      "rule": "Voiceless k → suffix starts with t.",
+      "why": "uçak + DA → uçakta; back vowel a completes the harmony."
+    },
+    "targets": ["wrong_consonant_harmony"]
+  },
+  {
+    "id": "consonant-assimilation.ex.006",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Add the ablative -DAn to “ev” (from the house). Hint: v is voiced.",
+    "answer": ["evden"],
+    "explanation": {
+      "rule": "Voiced final sound → suffix starts with d.",
+      "why": "ev + DAn → evden; front e → -den."
+    },
+    "targets": ["wrong_consonant_harmony", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "consonant-assimilation.ex.007",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "çocuk + u → ? (final k softens)",
+    "answer": ["çocuğu"],
+    "explanation": {
+      "rule": "Final k softens to ğ before a vowel.",
+      "why": "çocuk + vowel → çocuğ-; u stays u (back, rounded)."
+    },
+    "targets": ["no_consonant_softening", "k_softening"]
+  },
+  {
+    "id": "consonant-assimilation.ex.008",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "kanat + ı → ? (final t softens)",
+    "answer": ["kanadı"],
+    "explanation": {
+      "rule": "Final t softens to d before a vowel.",
+      "why": "kanat + ı → kanadı — ‘its wing’."
+    },
+    "targets": ["no_consonant_softening"]
+  },
+  {
+    "id": "consonant-assimilation.ex.009",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Add -DAn to “dağ” (from the mountain).",
+    "answer": ["dağdan"],
+    "explanation": {
+      "rule": "ğ is voiced → d; a is back → -dan.",
+      "why": "Two rules at once: voicing picks d, harmony picks a."
+    },
+    "targets": ["wrong_consonant_harmony", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "consonant-assimilation.ex.010",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "renk + i → ? (k softens to g after n)",
+    "answer": ["rengi"],
+    "explanation": {
+      "rule": "After n, final k softens to g (not ğ): renk → reng-.",
+      "why": "renk + i → rengi — ‘its colour’."
+    },
+    "targets": ["k_softening"]
+  },
+  {
+    "id": "consonant-assimilation.ex.011",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Add -DA to “deniz” (in the sea).",
+    "answer": ["denizde"],
+    "explanation": {
+      "rule": "z is voiced → d; front i → -de.",
+      "why": "deniz + DA → denizde."
+    },
+    "targets": ["wrong_consonant_harmony", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "consonant-assimilation.ex.012",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "uçak + ı → ? (does the k soften here?)",
+    "answer": ["uçağı"],
+    "explanation": {
+      "rule": "Yes — a vowel-initial suffix softens final k → ğ.",
+      "why": "Contrast with uçakta: -DA starts with a consonant, so no softening there."
+    },
+    "targets": ["k_softening", "no_consonant_softening"]
+  },
+  {
+    "id": "consonant-assimilation.ex.013",
+    "conceptId": "consonant-assimilation",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "at + ı → ? (careful: one-syllable exception)",
+    "answer": ["atı"],
+    "explanation": {
+      "rule": "Many one-syllable words resist softening: at → atı, not adı.",
+      "why": "Softening is the default, not a law — short words often keep their stop. (adı means ‘his name’, a different word!)"
+    },
+    "targets": ["no_consonant_softening"]
+  }
+]

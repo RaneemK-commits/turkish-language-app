@@ -1,0 +1,35 @@
+{
+  "id": "alphabet.lesson",
+  "conceptId": "alphabet",
+  "type": "lesson",
+  "formula": "29 letters · 8 vowels · one sound ↔ one letter",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "Turkish spelling is phonetic — read what you see. The letters that trip English speakers, once: **ı** (dotless, the *e* in \"open\") vs **i** (\"ee\") · **ö / ü** (as in German) · **c** = English *j* · **ç** = *ch* · **ş** = *sh* · **ğ** (soft-g) is silent and lengthens the vowel before it."
+    },
+    {
+      "kind": "table",
+      "headers": ["letter", "sounds like"],
+      "rows": [
+        ["c", "j in ‘jam’"],
+        ["ç", "ch in ‘church’"],
+        ["ş", "sh in ‘shoe’"],
+        ["ı", "e in ‘open’"],
+        ["ğ", "(silent — lengthens)"]
+      ]
+    },
+    {
+      "kind": "example",
+      "tr": "dağ",
+      "gloss": "mountain — sounds like ‘daa’",
+      "highlight": [{ "span": [2, 3], "note": "ğ: silent, lengthens a" }]
+    },
+    {
+      "kind": "example",
+      "tr": "kapı",
+      "gloss": "door — final ı is the dotless vowel",
+      "highlight": [{ "span": [3, 4], "note": "ı ≠ i" }]
+    }
+  ]
+}
