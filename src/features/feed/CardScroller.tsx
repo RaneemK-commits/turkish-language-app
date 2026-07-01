@@ -15,7 +15,7 @@ const WINDOW = 2; // cards rendered on each side of the current one
 export function CardScroller({
   renderItem,
 }: {
-  renderItem: (item: FeedItem, advance: () => void) => ReactNode;
+  renderItem: (item: FeedItem, advance: () => void, active: boolean) => ReactNode;
 }) {
   const ref = useRef<HTMLElement>(null);
   const items = useFeedStore((s) => s.items);
@@ -56,7 +56,7 @@ export function CardScroller({
         const inWindow = Math.abs(i - index) <= WINDOW;
         return (
           <section key={feedKey(item, i)} className="feed-card">
-            {inWindow ? renderItem(item, advanceFrom(i)) : null}
+            {inWindow ? renderItem(item, advanceFrom(i), i === index) : null}
           </section>
         );
       })}

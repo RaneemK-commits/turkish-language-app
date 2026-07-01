@@ -1,0 +1,174 @@
+[
+  {
+    "id": "possessive.ex.001",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“my house” → ?",
+    "answer": ["evim"],
+    "distractors": ["evin", "evi", "evım"],
+    "explanation": {
+      "rule": "1sg possessive -(I)m; front e → -im.",
+      "why": "evim — the vowel appears because ev ends in a consonant."
+    },
+    "targets": ["wrong_possessive_person", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "possessive.ex.002",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“his/her car” → ?",
+    "answer": ["arabası"],
+    "distractors": ["arabaı", "arabasi", "arabam"],
+    "explanation": {
+      "rule": "3sg after a vowel takes buffer -s-: -sI.",
+      "why": "arabası — back a → -sı."
+    },
+    "targets": ["missing_buffer_s", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "possessive.ex.003",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "ev + ___ (my)",
+    "answer": ["im"],
+    "distractors": ["ım", "em", "m"],
+    "explanation": {
+      "rule": "After a consonant the bracketed I appears: -im.",
+      "why": "evim."
+    },
+    "targets": ["wrong_suffix_vowel", "wrong_possessive_person"]
+  },
+  {
+    "id": "possessive.ex.004",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "araba + ___ (my)",
+    "answer": ["m"],
+    "distractors": ["ım", "im", "sı"],
+    "explanation": {
+      "rule": "After a vowel the bracketed I drops: just -m.",
+      "why": "arabam — not arabaım."
+    },
+    "targets": ["wrong_possessive_person"]
+  },
+  {
+    "id": "possessive.ex.005",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "ev + “your (sg)” → ?",
+    "answer": ["evin"],
+    "explanation": {
+      "rule": "2sg -(I)n: evin. (Yes — identical to the genitive ‘of the house’; context separates them.)",
+      "why": "senin evin — your house."
+    },
+    "targets": ["wrong_possessive_person"]
+  },
+  {
+    "id": "possessive.ex.006",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "el + “my” → ? (my hand)",
+    "answer": ["elim"],
+    "explanation": {
+      "rule": "Front e → -im.",
+      "why": "elim — my hand."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "possessive.ex.007",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "“our school” → ?",
+    "answer": ["okulumuz"],
+    "explanation": {
+      "rule": "1pl -(I)mIz; back rounded u throughout: -umuz.",
+      "why": "okulumuz — bizim okulumuz."
+    },
+    "targets": ["wrong_possessive_person", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "possessive.ex.008",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "göz + “my” → ? (my eye)",
+    "answer": ["gözüm"],
+    "explanation": {
+      "rule": "Front rounded ö → -üm.",
+      "why": "gözüm — the 4-fold vowel inside the possessive."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "possessive.ex.009",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "kitap + “his/her” → ?",
+    "answer": ["kitabı"],
+    "explanation": {
+      "rule": "3sg -(s)I after a consonant is just -I; p softens: kitabı.",
+      "why": "Identical in form to the accusative — Turkish reuses it; context decides."
+    },
+    "targets": ["no_consonant_softening", "missing_buffer_s"]
+  },
+  {
+    "id": "possessive.ex.010",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate: our teacher (one word)",
+    "answer": ["öğretmenimiz"],
+    "explanation": {
+      "rule": "öğretmen + -ImIz with front vowels: -imiz.",
+      "why": "öğretmenimiz — possession lives on the noun."
+    },
+    "targets": ["wrong_possessive_person", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "possessive.ex.011",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate: my eyes (one word — mind the suffix order)",
+    "answer": ["gözlerim"],
+    "explanation": {
+      "rule": "Plural BEFORE possessive: göz-ler-im.",
+      "why": "gözlerim — stacking order is fixed in Turkish."
+    },
+    "targets": ["wrong_possessive_person", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "possessive.ex.012",
+    "conceptId": "possessive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "su + “his/her” → ? (irregular buffer)",
+    "answer": ["suyu"],
+    "explanation": {
+      "rule": "su takes -y-: suyu (his/her water) — same surface form as the accusative.",
+      "why": "The su exception shows up in every suffix family."
+    },
+    "targets": ["missing_buffer_s"]
+  }
+]

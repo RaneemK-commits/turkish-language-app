@@ -1,0 +1,38 @@
+{
+  "id": "accusative.lesson",
+  "conceptId": "accusative",
+  "type": "lesson",
+  "formula": "noun + -(y)I   →   definite object",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "Mark the object **only when it is specific** — ‘the book’, a named thing. An indefinite object stays bare: *Kitap okudum* (I read a book) vs *Kitabı okudum* (I read **the** book)."
+    },
+    {
+      "kind": "rule",
+      "md": "Buffer **-y-** after a vowel (*kapı-yı*). Softening applies (*kitab-ı*). Proper nouns take an **apostrophe**: *Ali'yi, İstanbul'u*."
+    },
+    {
+      "kind": "table",
+      "headers": ["stem", "accusative"],
+      "rows": [
+        ["ev", "evi"],
+        ["kapı", "kapıyı"],
+        ["kitap", "kitabı"],
+        ["okul", "okulu"]
+      ]
+    },
+    {
+      "kind": "example",
+      "tr": "Kitabı okudum.",
+      "gloss": "I read the book — definite, so -ı (and p→b)",
+      "highlight": [{ "span": [4, 5], "note": "accusative -ı; p softened to b" }]
+    },
+    {
+      "kind": "example",
+      "tr": "Ali'yi gördüm.",
+      "gloss": "I saw Ali — buffer -y- after a vowel, apostrophe on the name",
+      "highlight": [{ "span": [3, 6], "note": "'yi: apostrophe + buffer y" }]
+    }
+  ]
+}

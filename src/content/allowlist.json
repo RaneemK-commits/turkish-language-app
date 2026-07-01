@@ -1,5 +1,6 @@
 {
   "functionWords": ["bu", "şu", "o", "ve", "ben", "sen", "biz", "siz", "onlar", "çok", "bir", "değil", "mı", "mi", "mu", "mü", "var", "yok"],
+  "properNouns": ["Ali", "Ayşe", "İstanbul", "Türkiye"],
   "introducedBy": {
     "alphabet": ["ev", "kapı", "kitap", "okul", "su", "çocuk", "dağ", "göz", "kız", "yol"],
     "vowel-harmony": ["gün", "ay", "yıl", "araba", "köpek", "deniz"],

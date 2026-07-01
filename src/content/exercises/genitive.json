@@ -1,0 +1,176 @@
+[
+  {
+    "id": "genitive.ex.001",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“of the house” → ?",
+    "answer": ["evin"],
+    "distractors": ["evın", "evun", "evnin"],
+    "explanation": {
+      "rule": "Consonant-final → -(n)In without the buffer; front e → -in.",
+      "why": "evin — the house's."
+    },
+    "targets": ["wrong_suffix_vowel", "missing_buffer_n"]
+  },
+  {
+    "id": "genitive.ex.002",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "kapı + genitive → ?",
+    "answer": ["kapının"],
+    "distractors": ["kapıın", "kapınin", "kapıyın"],
+    "explanation": {
+      "rule": "Vowel-final → buffer -n-; back ı → -nın.",
+      "why": "kapının — the genitive's buffer is -n-, not -y-."
+    },
+    "targets": ["missing_buffer_n", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "genitive.ex.003",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“my” (pronoun genitive) → ?",
+    "answer": ["benim"],
+    "distractors": ["beni", "benin", "bene"],
+    "explanation": {
+      "rule": "Pronoun genitives are lexical: benim, senin, onun…",
+      "why": "benim is irregular — memorise the six forms."
+    },
+    "targets": ["wrong_possessive_person"]
+  },
+  {
+    "id": "genitive.ex.004",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "ev + ___ (genitive)",
+    "answer": ["in"],
+    "distractors": ["ın", "nin", "un"],
+    "explanation": {
+      "rule": "No buffer after a consonant; front e → -in.",
+      "why": "evin."
+    },
+    "targets": ["wrong_suffix_vowel", "missing_buffer_n"]
+  },
+  {
+    "id": "genitive.ex.005",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "araba + ___ (genitive)",
+    "answer": ["nın"],
+    "distractors": ["ın", "nin", "yın"],
+    "explanation": {
+      "rule": "Vowel-final → buffer -n-; back a → -nın.",
+      "why": "arabanın — genitive buffers with n (accusative buffers with y)."
+    },
+    "targets": ["missing_buffer_n"]
+  },
+  {
+    "id": "genitive.ex.006",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Add the genitive to “okul” (of the school).",
+    "answer": ["okulun"],
+    "explanation": {
+      "rule": "Back rounded u → -un.",
+      "why": "okulun — the school's."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "genitive.ex.007",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Add the genitive to “anne” (mother's).",
+    "answer": ["annenin"],
+    "explanation": {
+      "rule": "Vowel-final → -nin (front e).",
+      "why": "annenin — buffer -n- again."
+    },
+    "targets": ["missing_buffer_n", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "genitive.ex.008",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "çocuk + genitive → ?",
+    "answer": ["çocuğun"],
+    "explanation": {
+      "rule": "Vowel-initial suffix softens k → ğ; back rounded u → -un.",
+      "why": "çocuğun — the child's."
+    },
+    "targets": ["k_softening", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "genitive.ex.009",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "öğretmen + genitive → ?",
+    "answer": ["öğretmenin"],
+    "explanation": {
+      "rule": "Front e governs → -in.",
+      "why": "öğretmenin — the teacher's."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "genitive.ex.010",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Ali + genitive → ?",
+    "answer": ["Ali'nin"],
+    "alternates": ["Alinin"],
+    "explanation": {
+      "rule": "Proper noun keeps its apostrophe; buffer -n- after the vowel.",
+      "why": "Ali'nin — Ali's."
+    },
+    "targets": ["missing_apostrophe", "missing_buffer_n"]
+  },
+  {
+    "id": "genitive.ex.011",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "su + genitive → ? (irregular — this one buffers with -y-)",
+    "answer": ["suyun"],
+    "explanation": {
+      "rule": "su is the famous exception: suyun, not sunun.",
+      "why": "A handful of words carry an old stem-final y; su is the one you'll meet daily."
+    },
+    "targets": ["missing_buffer_n"]
+  },
+  {
+    "id": "genitive.ex.012",
+    "conceptId": "genitive",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "deniz + genitive → ?",
+    "answer": ["denizin"],
+    "explanation": {
+      "rule": "Front i → -in; no buffer after z.",
+      "why": "denizin — of the sea."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  }
+]

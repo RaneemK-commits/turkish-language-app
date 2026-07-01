@@ -1,0 +1,34 @@
+{
+  "id": "possessive.lesson",
+  "conceptId": "possessive",
+  "type": "lesson",
+  "formula": "ev-im · ev-in · ev-i · ev-imiz · ev-iniz · ev-leri",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "Possession is marked on the **possessed noun**. The bracketed vowel appears only after a consonant: *ev-im* but *araba-m*; 3rd person adds **-s-** after a vowel: *ev-i* but *araba-sı*."
+    },
+    {
+      "kind": "table",
+      "headers": ["person", "after consonant", "after vowel"],
+      "rows": [
+        ["my", "-Im (evim)", "-m (arabam)"],
+        ["your", "-In (evin)", "-n (araban)"],
+        ["his/her/its", "-I (evi)", "-sI (arabası)"],
+        ["our", "-ImIz (evimiz)", "-mIz (arabamız)"],
+        ["your (pl)", "-InIz (eviniz)", "-nIz (arabanız)"],
+        ["their", "-lArI (evleri)", "-lArI (arabaları)"]
+      ]
+    },
+    {
+      "kind": "rule",
+      "md": "Order of stacking: plural first, then possessive: *göz-ler-im* (my eyes). Note *evleri* can mean ‘their house’ or ‘his houses’ — context decides."
+    },
+    {
+      "kind": "example",
+      "tr": "gözlerim",
+      "gloss": "my eyes — plural -ler, then -im",
+      "highlight": [{ "span": [3, 8], "note": "-ler-im: plural before possessive" }]
+    }
+  ]
+}

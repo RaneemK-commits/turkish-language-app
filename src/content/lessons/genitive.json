@@ -1,0 +1,32 @@
+{
+  "id": "genitive.lesson",
+  "conceptId": "genitive",
+  "type": "lesson",
+  "formula": "noun + -(n)In   →   possessor (\"of / ’s\")",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "The possessor takes **-(n)In** — 4-fold I, buffer **-n-** after a vowel: *ev-in* (of the house), *kapı-nın* (of the door). Proper nouns keep the apostrophe: *Ali'nin*. Irregular: *su → suyun*."
+    },
+    {
+      "kind": "rule",
+      "md": "Pronoun genitives are their own words: **benim, senin, onun, bizim, sizin, onların** — my, your, his/her, our, your (pl), their."
+    },
+    {
+      "kind": "table",
+      "headers": ["stem", "genitive"],
+      "rows": [
+        ["ev", "evin"],
+        ["kapı", "kapının"],
+        ["okul", "okulun"],
+        ["çocuk", "çocuğun"]
+      ]
+    },
+    {
+      "kind": "example",
+      "tr": "çocuğun",
+      "gloss": "the child's — k→ğ softening + -un",
+      "highlight": [{ "span": [4, 6], "note": "ğun: softening + back rounded I" }]
+    }
+  ]
+}

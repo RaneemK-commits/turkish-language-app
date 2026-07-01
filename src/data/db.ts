@@ -4,22 +4,7 @@
  * Repos in src/data/repos/ wrap these tables from Phase 2 on.
  */
 import Dexie, { type EntityTable } from "dexie";
-import type { ErrorTag } from "@/content/schema/schema";
-
-export type ConceptStatus = "new" | "learning" | "review" | "mastered";
-
-/** One FSRS memory state per concept (PDR §7.2). */
-export interface UserConceptState {
-  conceptId: string;
-  status: ConceptStatus;
-  stability: number;
-  difficulty: number;
-  due: string; // ISO 8601
-  lastReview: string | null;
-  reps: number;
-  lapses: number;
-  errorPatterns: Partial<Record<ErrorTag, number>>;
-}
+import type { ConceptMemory } from "@/domain/srs/scheduler.types";
 
 /** Per-day session statistics powering streaks and the stats view. */
 export interface DayStats {
@@ -50,7 +35,7 @@ export interface Attempt {
 }
 
 export class AkisDb extends Dexie {
-  srs!: EntityTable<UserConceptState, "conceptId">;
+  srs!: EntityTable<ConceptMemory, "conceptId">;
   stats!: EntityTable<DayStats, "date">;
   settings!: EntityTable<Settings, "key">;
   attempts!: EntityTable<Attempt, "id">;

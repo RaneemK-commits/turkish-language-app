@@ -120,7 +120,11 @@ for (const cards of exercisesByConcept.values()) {
 
 // ---------- gate 3: vocabulary allowlist ----------
 
-type Allowlist = { functionWords: string[]; introducedBy: Record<string, string[]> };
+type Allowlist = {
+  functionWords: string[];
+  properNouns: string[];
+  introducedBy: Record<string, string[]>;
+};
 const allowlist = readJson(join(CONTENT_DIR, "allowlist.json")) as Allowlist;
 
 for (const c of concepts)
@@ -129,7 +133,9 @@ for (const c of concepts)
 
 /** Cumulative stems available at a concept's position, incl. softening variants. */
 function stemsAvailableAt(concept: Concept): Set<string> {
-  const stems = new Set<string>(allowlist.functionWords.map(toLowerTr));
+  const stems = new Set<string>(
+    [...allowlist.functionWords, ...allowlist.properNouns].map(toLowerTr),
+  );
   for (const c of concepts) {
     if (c.order > concept.order) continue;
     for (const word of allowlist.introducedBy[c.id] ?? []) {

@@ -1,8 +1,11 @@
 import { useShallow } from "zustand/react/shallow";
 import { useFeedStore, selectStats } from "@/store/feedStore";
+import { useSrsStore } from "@/store/srsStore";
 
 export function SessionSummary() {
   const stats = useFeedStore(useShallow(selectStats));
+  const startSession = useFeedStore((s) => s.startSession);
+  const streak = useSrsStore((s) => s.streak);
   const pct =
     stats.answered === 0 ? 0 : Math.round((stats.correct / stats.answered) * 100);
 
@@ -17,11 +20,14 @@ export function SessionSummary() {
           {stats.correct} correct · {stats.incorrect} to revisit ·{" "}
           {stats.answered} answered
         </span>
+        <span>🔥 {streak}-day streak</span>
         <span className="card__body">
-          That's every authored card. Phase 2 brings the FSRS engine — reviews
-          will come due and the feed becomes endless.
+          Reviews are scheduled — anything you missed comes back sooner.
         </span>
       </div>
+      <button className="btn btn--block" onClick={() => void startSession()}>
+        New session
+      </button>
     </article>
   );
 }

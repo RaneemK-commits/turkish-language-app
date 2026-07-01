@@ -1,0 +1,191 @@
+[
+  {
+    "id": "cases-dla.ex.001",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“to school” → ?",
+    "answer": ["okula"],
+    "distractors": ["okulda", "okuldan", "okulu"],
+    "explanation": {
+      "rule": "Motion toward → dative -(y)A.",
+      "why": "okul + a — back vowel u → -a."
+    },
+    "targets": ["wrong_case_choice"]
+  },
+  {
+    "id": "cases-dla.ex.002",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“at home / in the house” → ?",
+    "answer": ["evde"],
+    "distractors": ["eve", "evden", "evi"],
+    "explanation": {
+      "rule": "Location → locative -DA; voiced v → -de.",
+      "why": "evde — being at, not moving to."
+    },
+    "targets": ["wrong_case_choice", "wrong_consonant_harmony"]
+  },
+  {
+    "id": "cases-dla.ex.003",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "“from the mountain” → ?",
+    "answer": ["dağdan"],
+    "distractors": ["dağda", "dağa", "dağdın"],
+    "explanation": {
+      "rule": "Motion away → ablative -DAn.",
+      "why": "dağ + dan — ğ is voiced → d; a is back → -dan."
+    },
+    "targets": ["wrong_case_choice"]
+  },
+  {
+    "id": "cases-dla.ex.004",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "kapı + ___ (dative: to)",
+    "answer": ["ya"],
+    "distractors": ["a", "ye", "da"],
+    "explanation": {
+      "rule": "Vowel-final stem → buffer -y-; back ı → -ya.",
+      "why": "kapıya — to the door."
+    },
+    "targets": ["missing_buffer_y", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "cases-dla.ex.005",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "kitap + ___ (locative: at/in)",
+    "answer": ["ta"],
+    "distractors": ["da", "te", "tı"],
+    "explanation": {
+      "rule": "Voiceless p → D surfaces as t; back a → -ta.",
+      "why": "kitapta — in the book."
+    },
+    "targets": ["wrong_consonant_harmony", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "cases-dla.ex.006",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Add the dative to “deniz” (to the sea).",
+    "answer": ["denize"],
+    "explanation": {
+      "rule": "Consonant-final → no buffer; front i → -e.",
+      "why": "denize — motion toward the sea."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "cases-dla.ex.007",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 2,
+    "prompt": "Add the ablative to “okul” (from school).",
+    "answer": ["okuldan"],
+    "explanation": {
+      "rule": "Voiced l → -dan (back a).",
+      "why": "okuldan — motion away from school."
+    },
+    "targets": ["wrong_consonant_harmony", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "cases-dla.ex.008",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "araba + dative (to the car) → ?",
+    "answer": ["arabaya"],
+    "explanation": {
+      "rule": "Vowel-final stem needs buffer -y-: araba-y-a.",
+      "why": "arabaya — two vowels never touch."
+    },
+    "targets": ["missing_buffer_y"]
+  },
+  {
+    "id": "cases-dla.ex.009",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "uçak + locative (in the plane) → ?",
+    "answer": ["uçakta"],
+    "explanation": {
+      "rule": "Voiceless k → -ta. No softening: the suffix starts with a consonant.",
+      "why": "uçakta — contrast uçağı, where a vowel follows."
+    },
+    "targets": ["wrong_consonant_harmony", "no_consonant_softening"]
+  },
+  {
+    "id": "cases-dla.ex.010",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "ev + ablative (from the house) → ?",
+    "answer": ["evden"],
+    "explanation": {
+      "rule": "Voiced v → -den (front e).",
+      "why": "evden — away from the house."
+    },
+    "targets": ["wrong_consonant_harmony", "wrong_suffix_vowel"]
+  },
+  {
+    "id": "cases-dla.ex.011",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 4,
+    "prompt": "Which sentence means “The bird came from the tree”?",
+    "answer": ["Kuş ağaçtan geldi."],
+    "distractors": ["Kuş ağaca geldi.", "Kuş ağaçta geldi."],
+    "explanation": {
+      "rule": "‘From’ → ablative -DAn; voiceless ç → -tan.",
+      "why": "ağaca = to the tree; ağaçta = in the tree; ağaçtan = from it."
+    },
+    "targets": ["wrong_case_choice", "wrong_consonant_harmony"]
+  },
+  {
+    "id": "cases-dla.ex.012",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate: I went to İstanbul.",
+    "answer": ["İstanbul'a gittim."],
+    "alternates": ["İstanbula gittim."],
+    "explanation": {
+      "rule": "Proper noun + dative → İstanbul'a (apostrophe); verb last.",
+      "why": "Motion toward a place takes the dative."
+    },
+    "targets": ["wrong_case_choice", "missing_apostrophe"]
+  },
+  {
+    "id": "cases-dla.ex.013",
+    "conceptId": "cases-dla",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 4,
+    "prompt": "Translate: I came from school.",
+    "answer": ["Okuldan geldim."],
+    "explanation": {
+      "rule": "Origin → ablative okuldan; geldim = I came.",
+      "why": "‘From’ marks the source of motion."
+    },
+    "targets": ["wrong_case_choice"]
+  }
+]

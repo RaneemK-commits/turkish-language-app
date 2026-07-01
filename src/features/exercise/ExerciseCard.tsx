@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Concept, ExerciseCard as ExerciseCardData } from "@/content/schema/schema";
 import type { CheckVerdict } from "@/domain/answer/check";
+import type { FeedItem } from "@/domain/feed/linearFeed";
 import { useFeedStore } from "@/store/feedStore";
 import { ChoiceList } from "./formats/ChoiceList";
 import { FillBlank } from "./formats/FillBlank";
@@ -11,26 +12,37 @@ const LEVEL_LABEL = ["", "L1 · recognise", "L2 · cued", "L3 · produce", "L4 �
 export function ExerciseCard({
   concept,
   card,
+  active,
   onComplete,
 }: {
   concept: Concept;
   card: ExerciseCardData;
+  /** true while this card is the one snapped into view — starts the clock */
+  active: boolean;
   onComplete: () => void;
 }) {
-  const recordResult = useFeedStore((s) => s.recordResult);
+  const recordExercise = useFeedStore((s) => s.recordExercise);
   const answered = useFeedStore((s) => card.id in s.results);
   const [pending, setPending] = useState<{ verdict: CheckVerdict; given: string } | null>(null);
-  const verdict = pending?.verdict ?? null;
+  const activeAt = useRef<number | null>(null);
 
-  // Sheet opens on answer; the result is recorded on dismiss so the
-  // advance-lock releases only after the explanation was seen.
-  const handleAnswer = (v: CheckVerdict, given: string) =>
-    setPending({ verdict: v, given });
+  useEffect(() => {
+    if (active && activeAt.current === null) activeAt.current = Date.now();
+  }, [active]);
+
+  const handleAnswer = (verdict: CheckVerdict, given: string) =>
+    setPending({ verdict, given });
 
   const dismiss = () => {
     if (!pending) return;
-    recordResult(card.id, pending);
-    setPending(null); // close the sheet — the card stays mounted behind us
+    const msToAnswer = activeAt.current ? Date.now() - activeAt.current : 30_000;
+    const item: Extract<FeedItem, { kind: "exercise" }> = {
+      kind: "exercise",
+      concept,
+      card,
+    };
+    recordExercise(item, { ...pending, msToAnswer });
+    setPending(null);
     onComplete();
   };
 
@@ -63,7 +75,7 @@ export function ExerciseCard({
         </p>
         {body}
       </article>
-      <FeedbackSheet card={card} verdict={verdict} onDismiss={dismiss} />
+      <FeedbackSheet card={card} verdict={pending?.verdict ?? null} onDismiss={dismiss} />
     </>
   );
 }

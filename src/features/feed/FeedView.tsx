@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { seedSource } from "@/content/source/SeedSource";
-import { buildLinearFeed } from "@/domain/feed/linearFeed";
 import { useFeedStore } from "@/store/feedStore";
 import { CardScroller } from "./CardScroller";
 import { ProgressHUD } from "./ProgressHUD";
@@ -9,20 +7,20 @@ import { LessonCard } from "@/features/lesson/LessonCard";
 import { ExerciseCard } from "@/features/exercise/ExerciseCard";
 
 export function FeedView() {
-  const init = useFeedStore((s) => s.init);
-  const ready = useFeedStore((s) => s.items.length > 0);
+  const phase = useFeedStore((s) => s.phase);
+  const startSession = useFeedStore((s) => s.startSession);
 
   useEffect(() => {
-    init(buildLinearFeed(seedSource));
-  }, [init]);
+    if (phase === "loading") void startSession();
+  }, [phase, startSession]);
 
-  if (!ready) return null;
+  if (phase === "loading") return <p className="loading">Building your session…</p>;
 
   return (
     <>
       <ProgressHUD />
       <CardScroller
-        renderItem={(item, advance) => {
+        renderItem={(item, advance, active) => {
           switch (item.kind) {
             case "lesson":
               return <LessonCard concept={item.concept} card={item.card} />;
@@ -31,6 +29,7 @@ export function FeedView() {
                 <ExerciseCard
                   concept={item.concept}
                   card={item.card}
+                  active={active}
                   onComplete={advance}
                 />
               );

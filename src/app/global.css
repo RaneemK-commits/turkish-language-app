@@ -90,10 +90,73 @@ input {
 }
 
 /* ================================================================
-   Feed scroller — pure CSS snap (PDR §8.2)
+   App shell: view area + tab bar
+   ================================================================ */
+.app {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__view {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading {
+  display: grid;
+  place-items: center;
+  height: 100dvh;
+  color: var(--muted);
+}
+
+.tabbar {
+  display: flex;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tabbar__tab {
+  flex: 1;
+  min-height: var(--touch-min);
+  padding: var(--sp-2) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.tabbar__tab--active {
+  color: var(--accent);
+}
+
+.tabbar__icon {
+  font-size: 18px;
+  position: relative;
+}
+
+.tabbar__badge {
+  position: absolute;
+  top: -4px;
+  right: -14px;
+  background: var(--incorrect);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1px 5px;
+}
+
+/* ================================================================
+   Feed scroller — pure CSS snap (PDR §8.2), fills the view area
    ================================================================ */
 .card-scroller {
-  height: 100dvh;
+  height: 100%;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
@@ -104,7 +167,7 @@ input {
 }
 
 .feed-card {
-  height: 100dvh;
+  height: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always; /* one card per swipe */
   display: flex;
@@ -419,4 +482,120 @@ input {
 .summary-stats strong {
   font-size: 28px;
   font-family: var(--font-formula);
+}
+
+/* ================================================================
+   Deck (flashcards)
+   ================================================================ */
+.deck {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+}
+
+.deck--empty {
+  justify-content: center;
+}
+
+.deck__count {
+  color: var(--muted);
+  font-size: var(--fs-kicker);
+}
+
+.deck .card {
+  min-height: 40%;
+}
+
+.deck__grades {
+  display: flex;
+  gap: var(--sp-2);
+  width: 100%;
+  max-width: 420px;
+}
+
+.deck__grade {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-3) var(--sp-2);
+}
+
+.deck__grade small {
+  font-weight: 400;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.deck__grade--again {
+  background: #b91c1c;
+}
+.deck__grade--hard {
+  background: #a16207;
+}
+.deck__grade--good {
+  background: var(--accent-deep);
+}
+.deck__grade--easy {
+  background: #15803d;
+}
+
+.deck .btn--block {
+  max-width: 420px;
+}
+
+/* ================================================================
+   Stats
+   ================================================================ */
+.stats {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+}
+
+.stats__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  font-size: var(--fs-body);
+}
+
+.stats__list li {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: baseline;
+}
+
+.stats__tag {
+  font-family: var(--font-formula);
+  color: var(--typo);
+}
+
+.stats__status {
+  width: 1.2em;
+  text-align: center;
+}
+
+.stats__status--learning {
+  color: var(--typo);
+}
+.stats__status--review {
+  color: var(--accent);
+}
+.stats__status--mastered {
+  color: var(--correct);
+}
+
+.stats__due {
+  margin-left: auto;
+  font-size: 12px;
 }

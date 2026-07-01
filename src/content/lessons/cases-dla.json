@@ -1,0 +1,33 @@
+{
+  "id": "cases-dla.lesson",
+  "conceptId": "cases-dla",
+  "type": "lesson",
+  "formula": "dative -(y)A → to · locative -DA → at/in · ablative -DAn → from",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "Three cases, all the machinery you already know: the dative takes buffer **-y-** after a vowel; the locative and ablative start with **D** (d/t by voicing)."
+    },
+    {
+      "kind": "table",
+      "headers": ["case", "ev", "okul", "kapı", "kitap"],
+      "rows": [
+        ["to (-yA)", "eve", "okula", "kapıya", "kitaba"],
+        ["at (-DA)", "evde", "okulda", "kapıda", "kitapta"],
+        ["from (-DAn)", "evden", "okuldan", "kapıdan", "kitaptan"]
+      ]
+    },
+    {
+      "kind": "example",
+      "tr": "Okula gittim.",
+      "gloss": "I went to school — dative -a",
+      "highlight": [{ "span": [4, 4], "note": "dative: motion toward" }]
+    },
+    {
+      "kind": "example",
+      "tr": "Kitapta.",
+      "gloss": "in the book — voiceless p picks -ta",
+      "highlight": [{ "span": [5, 6], "note": "D → t after p" }]
+    }
+  ]
+}
