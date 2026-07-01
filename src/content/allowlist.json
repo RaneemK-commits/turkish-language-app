@@ -1,0 +1,30 @@
+{
+  "functionWords": ["bu", "şu", "o", "ve", "ben", "sen", "biz", "siz", "onlar", "çok", "bir", "değil", "mı", "mi", "mu", "mü", "var", "yok"],
+  "introducedBy": {
+    "alphabet": ["ev", "kapı", "kitap", "okul", "su", "çocuk", "dağ", "göz", "kız", "yol"],
+    "vowel-harmony": ["gün", "ay", "yıl", "araba", "köpek", "deniz"],
+    "consonant-assimilation": ["ağaç", "kanat", "renk", "uçak", "at", "kuş"],
+    "plural": [],
+    "accusative": ["görmek", "okumak", "sevmek"],
+    "cases-dla": ["gitmek", "gelmek", "durmak"],
+    "genitive": ["anne", "baba", "öğretmen"],
+    "possessive": ["el", "isim"],
+    "izafet": ["başkent", "durak", "pencere"],
+    "copula": ["öğrenci", "hasta", "mutlu", "masa", "kimse"],
+    "verb-stems": ["yapmak", "yemek", "içmek", "bilmek"],
+    "present-iyor": ["beklemek", "yazmak"],
+    "aorist": ["çay", "her gün", "bazen"],
+    "past-di": ["dün"],
+    "future-ecek": ["yarın", "sonra"],
+    "past-mis": [],
+    "negation": [],
+    "question-mi": [],
+    "imperative": [],
+    "ability": [],
+    "necessitative": [],
+    "conditional": ["eğer"],
+    "participles": ["adam"],
+    "converbs": ["koşmak", "yürümek", "aramak"],
+    "postpositions": ["ders", "akşam", "otobüs", "aslan"]
+  }
+}

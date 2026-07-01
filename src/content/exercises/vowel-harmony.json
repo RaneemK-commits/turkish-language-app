@@ -1,0 +1,61 @@
+[
+  {
+    "id": "vowel-harmony.ex.001",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "The last vowel of “okul” is u. Which vowel does a 4-fold I suffix take?",
+    "answer": ["u"],
+    "distractors": ["ı", "i", "ü"],
+    "explanation": {
+      "rule": "4-fold I: back + rounded → u.",
+      "why": "‘u’ in ‘okul’ is a back, rounded vowel."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.002",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "multiple_choice",
+    "difficulty": 1,
+    "prompt": "Which is correct?",
+    "answer": ["günler"],
+    "distractors": ["günlar", "günlur", "günlür"],
+    "explanation": {
+      "rule": "2-fold A: front vowel → e, so -lAr → -ler.",
+      "why": "‘ü’ in ‘gün’ is a front vowel."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.003",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "suffix_match",
+    "difficulty": 2,
+    "prompt": "kapı + ___  (plural)",
+    "answer": ["lar"],
+    "distractors": ["ler"],
+    "explanation": {
+      "rule": "2-fold A: back vowel → a, so -lAr → -lar.",
+      "why": "The last vowel of ‘kapı’ is ı (back)."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  },
+  {
+    "id": "vowel-harmony.ex.004",
+    "conceptId": "vowel-harmony",
+    "type": "exercise",
+    "format": "fill_blank",
+    "difficulty": 3,
+    "prompt": "Write the plural of “göz” (eye).",
+    "answer": ["gözler"],
+    "explanation": {
+      "rule": "2-fold A: ö is front → -ler.",
+      "why": "Front-vowel stems always take the e-variant of A suffixes."
+    },
+    "targets": ["wrong_suffix_vowel"]
+  }
+]

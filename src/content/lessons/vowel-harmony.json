@@ -1,0 +1,34 @@
+{
+  "id": "vowel-harmony.lesson",
+  "conceptId": "vowel-harmony",
+  "type": "lesson",
+  "formula": "suffix vowel copies the LAST vowel of the stem\nA = {a, e}   ·   I = {ı, i, u, ü}",
+  "body": [
+    {
+      "kind": "rule",
+      "md": "Vowels split two ways: **back** {a ı o u} vs **front** {e i ö ü}, and **rounded** {o ö u ü} vs **unrounded** {a e ı i}. A suffix written with `A` picks between **a/e** (2-fold); one written with `I` picks between **ı/i/u/ü** (4-fold). Only the stem's *last* vowel matters."
+    },
+    {
+      "kind": "table",
+      "headers": ["last vowel", "A →", "I →"],
+      "rows": [
+        ["a, ı", "a", "ı"],
+        ["e, i", "e", "i"],
+        ["o, u", "a", "u"],
+        ["ö, ü", "e", "ü"]
+      ]
+    },
+    {
+      "kind": "example",
+      "tr": "evler",
+      "gloss": "houses — e is front, so -lAr → -ler",
+      "highlight": [{ "span": [2, 5], "note": "-ler: front A" }]
+    },
+    {
+      "kind": "example",
+      "tr": "kapılar",
+      "gloss": "doors — ı is back, so -lAr → -lar",
+      "highlight": [{ "span": [4, 7], "note": "-lar: back A" }]
+    }
+  ]
+}
