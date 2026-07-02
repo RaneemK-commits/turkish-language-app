@@ -17,7 +17,11 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "prompt", // update toast, never a mid-session swap (PDR §10)
+      // autoUpdate: new deploys activate on next launch (skipWaiting +
+      // clientsClaim). A single-user app has no reason to gate updates behind a
+      // toast — and a "prompt" registerType with no toast UI wired left the old
+      // shell cached indefinitely on the installed iPhone PWA.
+      registerType: "autoUpdate",
       includeAssets: ["icons/*.png"],
       manifest: {
         name: "Akış — Turkish Grammar Feed",
