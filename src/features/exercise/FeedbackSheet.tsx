@@ -1,5 +1,6 @@
 import type { ExerciseCard } from "@/content/schema/schema";
 import type { CheckVerdict } from "@/domain/answer/check";
+import { Star } from "@/ui/icons";
 
 const VERDICT_LABEL: Record<CheckVerdict, string> = {
   correct: "Correct",
@@ -23,7 +24,7 @@ export function FeedbackSheet({
   const open = verdict !== null;
   return (
     <div
-      className={`sheet${open ? " sheet--open" : ""}`}
+      className={`sheet${open ? " sheet--open" : ""}${verdict ? ` sheet--${verdict}` : ""}`}
       role="dialog"
       aria-live="polite"
       aria-hidden={!open}
@@ -31,6 +32,9 @@ export function FeedbackSheet({
       {verdict && (
         <>
           <p className={`sheet__verdict sheet__verdict--${verdict}`}>
+            <span className="sheet__star">
+              <Star size={15} />
+            </span>
             {VERDICT_LABEL[verdict]}
           </p>
           {verdict !== "correct" && (

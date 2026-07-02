@@ -1,33 +1,46 @@
 /* ================================================================
-   Akış design tokens — dark slate/sky, dark-first (night scrolling).
+   Akış design tokens — "Çini": warm white ceramic ground, coral +
+   emerald, 8-point star motif. Light mode only.
    Every component reads from these; re-skinning = editing this block.
    ================================================================ */
 :root {
   /* color */
-  --bg: #0f172a; /* slate-900 */
-  --card: #1e293b; /* slate-800 */
-  --card-raised: #273449;
-  --border: #334155; /* slate-700 */
-  --text: #f1f5f9; /* slate-100 */
-  --muted: #94a3b8; /* slate-400 */
-  --accent: #38bdf8; /* sky-400 */
-  --accent-deep: #0284c7; /* sky-600 */
-  --correct: #4ade80; /* green-400 */
-  --correct-bg: rgba(74, 222, 128, 0.12);
-  --incorrect: #f87171; /* red-400 */
-  --incorrect-bg: rgba(248, 113, 113, 0.12);
-  --typo: #facc15; /* yellow-400 */
-  --typo-bg: rgba(250, 204, 21, 0.12);
+  --bg: #f3ede0; /* warm bone / plaster */
+  --card: #fffefa; /* near-white glaze */
+  --card-raised: #f7f2e7; /* nested surface (examples, options) */
+  --border: #e3dac6;
+  --text: #26231d; /* warm ink */
+  --muted: #6e675b; /* secondary text — 5.5:1 on card */
+  --accent: #c2452a; /* coral — the thing being learned */
+  --accent-deep: #a33720; /* filled buttons — white text 6.7:1 */
+  --accent-2: #16735b; /* emerald — kickers, structure, mastery */
+  --highlight-bg: #f9e9e4; /* coral tint pill behind highlighted suffixes */
+  --correct: #16735b;
+  --correct-bg: #e8f1ea;
+  --incorrect: #8a2e3b; /* cranberry — never brand coral */
+  --incorrect-bg: #f7e7e6;
+  --typo: #9a6a14; /* saffron */
+  --typo-bg: #f7edd6;
+  --grade-again: #8a2e3b;
+  --grade-hard: #9a6a14;
+  --grade-good: #a33720;
+  --grade-easy: #16735b;
+  --shadow-card:
+    0 1px 2px rgba(93, 77, 44, 0.05), 0 12px 32px rgba(93, 77, 44, 0.07);
+  --shadow-sheet: 0 -8px 24px rgba(93, 77, 44, 0.12);
 
   /* type */
   --font-body:
-    system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-formula: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    "Schibsted Grotesk Variable", "Schibsted Grotesk", system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-formula:
+    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --fs-kicker: 13px;
   --fs-body: 15px;
-  --fs-formula: 19px;
+  --fs-formula: 20px;
   --fs-prompt: 22px;
   --fs-option: 17px;
+  --fs-stat: 34px;
 
   /* space & shape */
   --sp-1: 4px;
@@ -42,14 +55,17 @@
 
   /* motion */
   --dur-quick: 140ms;
-  --dur-sheet: 260ms;
+  --dur-sheet: 280ms;
+  --dur-stamp: 220ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.3, 1.4, 0.5, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-quick: 0ms;
     --dur-sheet: 0ms;
+    --dur-stamp: 0ms;
   }
 }
 
@@ -74,6 +90,10 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
+}
+
+::selection {
+  background: var(--highlight-bg);
 }
 
 button {
@@ -108,8 +128,21 @@ input {
 .loading {
   display: grid;
   place-items: center;
+  align-content: center;
+  gap: var(--sp-3);
   height: 100dvh;
   color: var(--muted);
+}
+
+/* wordmark: ink with the ş in brand coral */
+.wordmark {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.wordmark span {
+  color: var(--accent);
 }
 
 .tabbar {
@@ -122,29 +155,33 @@ input {
 .tabbar__tab {
   flex: 1;
   min-height: var(--touch-min);
-  padding: var(--sp-2) 0;
+  padding: var(--sp-2) 0 var(--sp-1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   font-size: 11px;
   color: var(--muted);
+  transition: color var(--dur-quick) var(--ease-out);
 }
 
 .tabbar__tab--active {
   color: var(--accent);
+  font-weight: 500;
 }
 
 .tabbar__icon {
-  font-size: 18px;
+  height: 24px;
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
 .tabbar__badge {
   position: absolute;
-  top: -4px;
+  top: -3px;
   right: -14px;
-  background: var(--incorrect);
+  background: var(--accent);
   color: #fff;
   font-size: 10px;
   font-weight: 700;
@@ -180,18 +217,26 @@ input {
   overflow: hidden;
 }
 
-/* result wash across the whole card */
-.feed-card--correct {
+/* result wash across the whole card slide while the sheet is up */
+.wash {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-quick) var(--ease-out);
+}
+
+.wash--correct {
   background: var(--correct-bg);
-  transition: background var(--dur-quick) var(--ease-out);
+  opacity: 1;
 }
-.feed-card--typo {
+.wash--typo {
   background: var(--typo-bg);
-  transition: background var(--dur-quick) var(--ease-out);
+  opacity: 1;
 }
-.feed-card--incorrect {
+.wash--incorrect {
   background: var(--incorrect-bg);
-  transition: background var(--dur-quick) var(--ease-out);
+  opacity: 1;
 }
 
 /* ================================================================
@@ -203,6 +248,7 @@ input {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
   padding: var(--sp-6) var(--sp-5);
   display: flex;
   flex-direction: column;
@@ -212,24 +258,30 @@ input {
 }
 
 .card__kicker {
-  color: var(--accent);
+  color: var(--accent-2);
   font-size: var(--fs-kicker);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+/* kicker → formula read as a tight pair */
+.card__kicker + .card__formula {
+  margin-top: calc(-1 * var(--sp-2));
+}
+
 .card__formula {
   font-family: var(--font-formula);
+  font-weight: 500;
   font-size: var(--fs-formula);
-  line-height: 1.45;
+  line-height: 1.5;
   white-space: pre-line;
 }
 
 .card__prompt {
   font-size: var(--fs-prompt);
   line-height: 1.35;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .card__body,
@@ -241,6 +293,7 @@ input {
 
 .card__rule strong {
   color: var(--text);
+  font-weight: 500;
 }
 
 /* lesson table */
@@ -252,7 +305,7 @@ input {
 
 .card__table th {
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
   padding: var(--sp-2) var(--sp-3);
   border-bottom: 1px solid var(--border);
@@ -260,6 +313,7 @@ input {
 
 .card__table td {
   font-family: var(--font-formula);
+  font-weight: 500;
   padding: var(--sp-2) var(--sp-3);
   border-bottom: 1px solid var(--border);
 }
@@ -276,13 +330,18 @@ input {
 
 .example__tr {
   font-family: var(--font-formula);
+  font-weight: 500;
   font-size: 18px;
 }
 
-.example__tr mark {
-  background: none;
+/* the brand gesture: the suffix being learned wears coral on a tint pill */
+.example__tr mark,
+.card__formula mark {
+  background: var(--highlight-bg);
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0 3px;
 }
 
 .example__gloss {
@@ -309,21 +368,27 @@ input {
   text-align: left;
   transition:
     border-color var(--dur-quick) var(--ease-out),
-    background var(--dur-quick) var(--ease-out);
+    background var(--dur-quick) var(--ease-out),
+    transform var(--dur-quick) var(--ease-out);
 }
 
 .option:active {
   border-color: var(--accent);
+  transform: scale(0.97);
 }
 
 .option--picked-correct {
   border-color: var(--correct);
   background: var(--correct-bg);
+  color: var(--correct);
+  font-weight: 500;
 }
 
 .option--picked-incorrect {
   border-color: var(--incorrect);
   background: var(--incorrect-bg);
+  color: var(--incorrect);
+  font-weight: 500;
 }
 
 .option--reveal-correct {
@@ -357,11 +422,12 @@ input {
 
 .answer-input {
   flex: 1;
+  min-width: 0;
   min-height: var(--touch-min);
   padding: var(--sp-3) var(--sp-4);
   border: 1px solid var(--border);
   border-radius: var(--radius-control);
-  background: var(--card-raised);
+  background: var(--card);
   color: var(--text);
   font-size: var(--fs-option);
 }
@@ -369,6 +435,7 @@ input {
 .answer-input:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--highlight-bg);
 }
 
 .btn {
@@ -377,9 +444,15 @@ input {
   border-radius: var(--radius-control);
   background: var(--accent-deep);
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--fs-option);
-  transition: opacity var(--dur-quick);
+  transition:
+    opacity var(--dur-quick),
+    transform var(--dur-quick) var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn:disabled {
@@ -391,32 +464,63 @@ input {
   width: 100%;
 }
 
+/* quiet coral text button (empty states) */
+.btn--text {
+  background: none;
+  color: var(--accent);
+  font-weight: 500;
+}
+
 /* ================================================================
-   Feedback sheet — slides up inside the card slide
+   Feedback sheet — slides up inside the card slide.
+   Top edge wears the verdict color; the star stamps in after it lands.
    ================================================================ */
 .sheet {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--card-raised);
-  border-top: 1px solid var(--border);
+  background: var(--card);
+  border-top: 3px solid var(--border);
   border-radius: var(--radius-card) var(--radius-card) 0 0;
+  box-shadow: var(--shadow-sheet);
   padding: var(--sp-5) var(--sp-5)
     max(var(--sp-5), env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
   gap: var(--sp-3);
   transform: translateY(100%);
-  transition: transform var(--dur-sheet) var(--ease-out);
+  /* visibility gates the closed sheet so its shadow can't leak above the
+     tab bar and its controls can't be reached */
+  visibility: hidden;
+  transition:
+    transform var(--dur-sheet) var(--ease-out),
+    visibility 0s linear var(--dur-sheet);
   z-index: 2;
 }
 
 .sheet--open {
   transform: translateY(0);
+  visibility: visible;
+  transition:
+    transform var(--dur-sheet) var(--ease-out),
+    visibility 0s;
+}
+
+.sheet--correct {
+  border-top-color: var(--correct);
+}
+.sheet--typo {
+  border-top-color: var(--typo);
+}
+.sheet--incorrect {
+  border-top-color: var(--incorrect);
 }
 
 .sheet__verdict {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
   font-size: 17px;
   font-weight: 700;
 }
@@ -431,8 +535,35 @@ input {
   color: var(--incorrect);
 }
 
+/* "kiln stamp": the star scales in with a soft spring once the sheet lands */
+.sheet--open .sheet__star {
+  animation: stamp var(--dur-stamp) var(--ease-spring) 80ms both;
+}
+
+@keyframes stamp {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet--open .sheet__star {
+    animation: none;
+  }
+}
+
+.sheet__star {
+  display: inline-flex;
+}
+
 .sheet__answer {
   font-family: var(--font-formula);
+  font-weight: 500;
   font-size: 18px;
 }
 
@@ -469,7 +600,7 @@ input {
 
 .hud__correct {
   color: var(--correct);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .summary-stats {
@@ -480,8 +611,53 @@ input {
 }
 
 .summary-stats strong {
-  font-size: 28px;
+  font-size: var(--fs-stat);
   font-family: var(--font-formula);
+  font-weight: 600;
+}
+
+/* three tiny stars between summary and streak — coral / emerald / coral */
+.star-divider {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-1) 0;
+}
+
+.star-divider span:nth-child(odd) {
+  color: var(--accent);
+}
+
+.star-divider span:nth-child(even) {
+  color: var(--accent-2);
+}
+
+/* ================================================================
+   Empty states — outline star, quiet copy
+   ================================================================ */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-3);
+  max-width: 300px;
+  color: var(--muted);
+}
+
+.empty__star {
+  color: var(--border);
+}
+
+.empty__title {
+  font-size: var(--fs-prompt);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.empty__body {
+  font-size: var(--fs-body);
+  line-height: 1.6;
 }
 
 /* ================================================================
@@ -532,16 +708,16 @@ input {
 }
 
 .deck__grade--again {
-  background: #b91c1c;
+  background: var(--grade-again);
 }
 .deck__grade--hard {
-  background: #a16207;
+  background: var(--grade-hard);
 }
 .deck__grade--good {
-  background: var(--accent-deep);
+  background: var(--grade-good);
 }
 .deck__grade--easy {
-  background: #15803d;
+  background: var(--grade-easy);
 }
 
 .deck .btn--block {
@@ -577,6 +753,7 @@ input {
 
 .stats__tag {
   font-family: var(--font-formula);
+  font-weight: 500;
   color: var(--typo);
 }
 
@@ -592,7 +769,7 @@ input {
   color: var(--accent);
 }
 .stats__status--mastered {
-  color: var(--correct);
+  color: var(--accent-2);
 }
 
 .stats__due {

@@ -9,6 +9,8 @@ import type { Rating } from "@/domain/srs/scheduler.types";
 import { pickExercises } from "@/domain/feed/buildFeed";
 import { statsRepo } from "@/data/repos/statsRepo";
 import { useSrsStore, selectDueConceptIds } from "@/store/srsStore";
+import { useUiStore } from "@/store/uiStore";
+import { StarOutline } from "@/ui/icons";
 
 const GRADES: { rating: Rating; label: string; hint: string }[] = [
   { rating: "again", label: "Again", hint: "forgot" },
@@ -20,6 +22,7 @@ const GRADES: { rating: Rating; label: string; hint: string }[] = [
 export function DeckView() {
   const states = useSrsStore((s) => s.states);
   const applyReview = useSrsStore((s) => s.applyReview);
+  const setTab = useUiStore((s) => s.setTab);
 
   // Deck is frozen at mount so grading doesn't reshuffle it underneath you.
   const deck = useMemo(() => {
@@ -40,25 +43,35 @@ export function DeckView() {
   if (deck.length === 0)
     return (
       <div className="deck deck--empty">
-        <article className="card">
-          <p className="card__kicker">Deck</p>
-          <p className="card__prompt">Nothing due right now 🎉</p>
-          <p className="card__body">
+        <div className="empty">
+          <span className="empty__star">
+            <StarOutline />
+          </span>
+          <p className="empty__title">Deck's clear</p>
+          <p className="empty__body">
             Reviews appear here when the scheduler says a concept needs
-            refreshing. Keep scrolling the feed to seed it.
+            refreshing.
           </p>
-        </article>
+          <button className="btn--text" onClick={() => setTab("feed")}>
+            Scroll the feed
+          </button>
+        </div>
       </div>
     );
 
   if (pos >= deck.length)
     return (
       <div className="deck deck--empty">
-        <article className="card">
-          <p className="card__kicker">Deck</p>
-          <p className="card__prompt">Deck cleared ✓</p>
-          <p className="card__body">{deck.length} concepts reviewed.</p>
-        </article>
+        <div className="empty">
+          <span className="empty__star">
+            <StarOutline />
+          </span>
+          <p className="empty__title">Deck cleared</p>
+          <p className="empty__body">{deck.length} concepts reviewed.</p>
+          <button className="btn--text" onClick={() => setTab("feed")}>
+            Back to the feed
+          </button>
+        </div>
       </div>
     );
 

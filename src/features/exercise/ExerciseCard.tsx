@@ -66,6 +66,10 @@ export function ExerciseCard({
 
   return (
     <>
+      <div
+        className={`wash${pending ? ` wash--${pending.verdict}` : ""}`}
+        aria-hidden="true"
+      />
       <article className="card" aria-label={`Exercise: ${concept.title}`}>
         <p className="card__kicker">
           {concept.title} · {LEVEL_LABEL[card.difficulty]}

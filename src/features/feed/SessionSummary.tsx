@@ -1,6 +1,7 @@
 import { useShallow } from "zustand/react/shallow";
 import { useFeedStore, selectStats } from "@/store/feedStore";
 import { useSrsStore } from "@/store/srsStore";
+import { Star } from "@/ui/icons";
 
 export function SessionSummary() {
   const stats = useFeedStore(useShallow(selectStats));
@@ -20,7 +21,18 @@ export function SessionSummary() {
           {stats.correct} correct · {stats.incorrect} to revisit ·{" "}
           {stats.answered} answered
         </span>
-        <span>🔥 {streak}-day streak</span>
+        <span className="star-divider" aria-hidden="true">
+          <span>
+            <Star size={10} />
+          </span>
+          <span>
+            <Star size={10} />
+          </span>
+          <span>
+            <Star size={10} />
+          </span>
+        </span>
+        <span>{streak}-day streak</span>
         <span className="card__body">
           Reviews are scheduled — anything you missed comes back sooner.
         </span>

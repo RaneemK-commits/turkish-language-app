@@ -4,8 +4,9 @@ import type { ErrorTag } from "@/content/schema/schema";
 import { statsRepo } from "@/data/repos/statsRepo";
 import type { DayStats } from "@/data/db";
 import { useSrsStore } from "@/store/srsStore";
+import { Star } from "@/ui/icons";
 
-const STATUS_ICON = { new: "·", learning: "◐", review: "●", mastered: "★" } as const;
+const STATUS_ICON = { new: "·", learning: "◐", review: "●" } as const;
 
 export function StatsView() {
   const states = useSrsStore((s) => s.states);
@@ -37,7 +38,7 @@ export function StatsView() {
         <p className="card__kicker">Today</p>
         <div className="summary-stats">
           <span>
-            <strong>🔥 {streak}</strong> day streak
+            <strong>{streak}</strong> day streak
           </span>
           <span>
             {today?.cardsSeen ?? 0} cards · {today?.correct ?? 0} correct ·{" "}
@@ -76,7 +77,7 @@ export function StatsView() {
             return (
               <li key={c.id}>
                 <span className={`stats__status stats__status--${status}`}>
-                  {STATUS_ICON[status]}
+                  {status === "mastered" ? <Star size={11} /> : STATUS_ICON[status]}
                 </span>
                 <span>{c.title}</span>
                 <span className="card__body stats__due">

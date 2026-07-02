@@ -1,10 +1,12 @@
+import type { JSX } from "react";
 import { useUiStore, type Tab } from "@/store/uiStore";
 import { useSrsStore, selectDueConceptIds } from "@/store/srsStore";
+import { FeedIcon, DeckIcon, StatsIcon } from "@/ui/icons";
 
-const TABS: { id: Tab; label: string; icon: string }[] = [
-  { id: "feed", label: "Feed", icon: "▤" },
-  { id: "deck", label: "Deck", icon: "🃏" },
-  { id: "stats", label: "Stats", icon: "◔" },
+const TABS: { id: Tab; label: string; icon: JSX.Element }[] = [
+  { id: "feed", label: "Feed", icon: <FeedIcon /> },
+  { id: "deck", label: "Deck", icon: <DeckIcon /> },
+  { id: "stats", label: "Stats", icon: <StatsIcon /> },
 ];
 
 export function TabBar() {

@@ -14,7 +14,15 @@ export function FeedView() {
     if (phase === "loading") void startSession();
   }, [phase, startSession]);
 
-  if (phase === "loading") return <p className="loading">Building your session…</p>;
+  if (phase === "loading")
+    return (
+      <div className="loading">
+        <span className="wordmark" style={{ fontSize: 34 }}>
+          akı<span>ş</span>
+        </span>
+        <span>Building your session…</span>
+      </div>
+    );
 
   return (
     <>
